@@ -12,30 +12,17 @@ namespace Problems.Tests
             
         }
 
-        [Test]
-        public void Test1()
-        {
-            
-            
-            string u = Program.Prefix("hello");
-            Assert.AreEqual("5,1:hello",u);
-            
-        }
-
-        [Test]
-        public void Test2()
+        [TestCase("hello","5,1:hello")]
+        [TestCase("","0,0:")]
+        [TestCase("what    ...  did you say?? ","27,5:what    ...  did you say?? ")]
+        [TestCase("this is nice","12,3:this is nice")]
+        [TestCase("     a       rose   65i","23,3:     a       rose   65i")]
+        [TestCase("gfwudurj  yfiojrfhy u i dgdyb ","30,5:gfwudurj  yfiojrfhy u i dgdyb ")]
+        public void Check_Prefix(string input, string result)
         {
             // Program p = new Program();
-            string u = Program.Prefix("");
-            Assert.AreEqual("0,0:",u);
-        }
-
-        [Test]
-        public void Test3()
-        {
-            // Program p = new Program();
-            string u = Program.Prefix("what   ...   did you say?? ");
-            Assert.AreEqual("27,5:what   ...   did you say?? ",u);
+            string u = Program.Prefix(input);
+            Assert.AreEqual(u, result);
         }
     }
 }
