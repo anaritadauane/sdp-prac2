@@ -1,5 +1,5 @@
 languange: csharp
-dotnet: 3.1 
+dotnet: 2.2.402 
 script:
   dotnet test 
 matrix: 
